@@ -12,18 +12,18 @@ private:
     double taxOwed;
     double taxRate;
     filingStatus filing;
-    double scheduleX() const; // Filing singly
-    double scheduleY1() const; // Married filing together
-    double scheduleY2() const; // Married filing separate
-    double scheduleZ() const; // Head of household filing
 public:
     TaxVT(double income, filingStatus filing);
 
     TaxVT();
 
+    static double scheduleX(double income); // Filing singly
+    static double scheduleY1(double income); // Married filing together
+    static double scheduleY2(double income); // Married filing separate
+    static double scheduleZ(double income); // Head of household filing
+
     double getTaxes();
 
-    double getTaxRate();
 };
 
 
