@@ -1,5 +1,6 @@
 #include "TaxVT.h"
 
+// Default constructor - NOTE: filing status and income are immutable
 TaxVT::TaxVT(double income, filingStatus filing) {
     this->income = income;
     this->filing = filing;
@@ -7,6 +8,7 @@ TaxVT::TaxVT(double income, filingStatus filing) {
     this->taxRate = taxOwed / income;
 }
 
+// No-arg constructor sets income to $0.00 and filing status to single
 TaxVT::TaxVT() : TaxVT(0, single) {}
 
 // Filing singly
@@ -83,5 +85,10 @@ double TaxVT::getTaxes() const {
        default:
            return 0;
    }
+}
+
+// Get effective tax rate
+double TaxVT::getTaxRate() const {
+    return taxRate;
 }
 
