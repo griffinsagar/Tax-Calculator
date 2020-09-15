@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// Function to validate user input
 template<class T>
 bool getUserInput(T& variable) {
    if (!(cin >> variable)) {
@@ -26,7 +27,9 @@ int main() {
     while (running) {
         double usrIncome;
         int usrStatus = 0;
+
         cout << "Please enter your 2019 income: $ ";
+
         while(!getUserInput(usrIncome)) {
             cout << "Please enter a floating point number: ";
         }
@@ -38,6 +41,7 @@ int main() {
              << "   4. Head of Household" << endl
              << "Please enter your filing status: ";
 
+        // Restrict user input to integers between 1 and 4
         while (!getUserInput(usrStatus) || (usrStatus < 1 || usrStatus > 4)) {
             cout << "Please enter an integer shown above: ";
         }
@@ -55,24 +59,20 @@ int main() {
             case 4:
                 user = TaxVT(usrIncome, headOfHouse);
                 break;
-            default:
-                cout << "Please enter an integer, 1-4: ";
-                getUserInput(usrIncome);
         }
 
         cout << fixed << setprecision(2);
         cout << "2019 Taxes owed: $" << user.getTaxes() << endl;
-        cout << "Effective Tax Rate: " << user.getTaxRate() * 100 << "%" << endl;
+        cout << "Effective Tax Rate: " << user.getTaxRate() * 100 << "%" << endl << endl;
 
-        cout << "Would you like to continue? Y/N: ";
+        cout << "Would you like to try again? Y/N: ";
+
+        // Ask if user wants to continue (default) or end (must enter N)
         char c;
         getUserInput(c);
-
         if (c == 'N' || c == 'n') {
             running = false;
         }
-
     }
-
     return 0;
 }
