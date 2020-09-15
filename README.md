@@ -18,7 +18,7 @@ I like this style of braces because it reduces the number of lines required in a
 I prefer camel case because it's the style I have always used for programming. When scripting or typing up small-scale programs, I find that camel case is much faster to type and read. Camel case also lends itself to using prefixes, as the prefix is the only uncapitalized word in the variable.
 
 #### Method comments
-
+I prefer to comment before each variable and method. This makes it easier to find how a method, variable, or other element is meant to be used in the code. By keeping the description next to the code, I can see the implementation without having to scroll. Top-of-file comments may be more efficient for simple programs, but I would still opt for method comments.
 
 #### No variable prefixes
 While variable prefixes are extremely useful for quickly finding a variable's scope, they make the variable names harder to read. Context is key for variable names, and the scope can be easily deduced by searching for places where the variable will be used. 

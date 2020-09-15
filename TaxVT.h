@@ -3,8 +3,6 @@
 #ifndef M1OEP_STYLE_ERRORS_GSAGAR_TAXVT_H
 #define M1OEP_STYLE_ERRORS_GSAGAR_TAXVT_H
 
-// TODO: Change to hanging case
-// TODO: Change to snake case
 // TODO: Top-of-file comments
 // TODO: Variables with prefix
 
@@ -32,18 +30,35 @@ public:
     TaxVT();
 
     /* TAX TABLES for 2019 */
-    // Filing as single
+
+    /* Schedule X - Filing Singly
+     * Requires: income (double)
+     * Returns: Calculated income tax according to tax bracket
+     * */
     static double scheduleX(double income);
-    // Filing as married, jointly
+    /* Schedule Y-1 - Filing Jointly, Married
+     * Requires: income (double)
+     * Returns: Calculated income tax according to tax bracket
+     * */
     static double scheduleY1(double income);
-    // Filing as married, separate
+    /* Schedule Y-2 - Filing Separate, Married
+     * Requires: income (double)
+     * Returns: Calculated income tax according to tax bracket
+     * */
     static double scheduleY2(double income);
-    // Filing as head of household
+    /* Schedule Z - Filing as Head of Household
+     * Requires: income (double)
+     * Returns: Calculated income tax according to tax bracket
+     * */
     static double scheduleZ(double income);
 
-    // Get taxes owed for fiscal year
+    /* Uses the tax bracket functions and filing status to calculate taxes.
+     * Returns: Calculated income tax according to tax bracket */
     double getTaxes() const;
-    // Get effective tax rate calculated for fiscal year
+    /* Finds the effective tax rate based on income tax and taxable income from this
+     * fiscal year.
+     * Returns: Calculated percentage (btw. 0 and 1)
+     * */
     double getTaxRate() const;
 };
 
