@@ -6,7 +6,7 @@ using namespace std;
 
 // Function to validate user input
 template<class T>
-bool getUserInput(T& variable)
+bool get_user_input(T& variable)
 {
    if (!(cin >> variable))
    {
@@ -29,12 +29,12 @@ int main()
 
     while (running)
     {
-        double usrIncome;
-        int usrStatus = 0;
+        double usr_income;
+        int usr_status = 0;
 
         cout << "Please enter your 2019 income: $ ";
 
-        while(!getUserInput(usrIncome))
+        while(!get_user_input(usr_income))
         {
             cout << "Please enter a floating point number: ";
         }
@@ -47,36 +47,36 @@ int main()
              << "Please enter your filing status: ";
 
         // Restrict user input to integers between 1 and 4
-        while (!getUserInput(usrStatus) || (usrStatus < 1 || usrStatus > 4))
+        while (!get_user_input(usr_status) || (usr_status < 1 || usr_status > 4))
         {
             cout << "Please enter an integer shown above: ";
         }
 
-        switch (usrStatus)
+        switch (usr_status)
         {
             case 1:
-                user = TaxVT(usrIncome, single);
+                user = TaxVT(usr_income, single);
                 break;
             case 2:
-                user = TaxVT(usrIncome, marriedJoint);
+                user = TaxVT(usr_income, married_joint);
                 break;
             case 3:
-                user = TaxVT(usrIncome, marriedSeparate);
+                user = TaxVT(usr_income, married_separate);
                 break;
             case 4:
-                user = TaxVT(usrIncome, headOfHouse);
+                user = TaxVT(usr_income, head_of_house);
                 break;
         }
 
         cout << fixed << setprecision(2);
-        cout << "2019 Taxes owed: $" << user.getTaxes() << endl;
-        cout << "Effective Tax Rate: " << user.getTaxRate() * 100 << "%" << endl << endl;
+        cout << "2019 Taxes owed: $" << user.get_taxes() << endl;
+        cout << "Effective Tax Rate: " << user.get_tax_rate() * 100 << "%" << endl << endl;
 
         cout << "Would you like to try again? Y/N: ";
 
         // Ask if user wants to continue (default) or end (must enter N)
         char c;
-        getUserInput(c);
+        get_user_input(c);
         if (c == 'N' || c == 'n')
         {
             running = false;

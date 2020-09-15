@@ -1,19 +1,19 @@
 #include "TaxVT.h"
 
 // Default constructor - NOTE: filing status and income are immutable
-TaxVT::TaxVT(double income, filingStatus filing)
+TaxVT::TaxVT(double income, filing_status filing)
 {
     this->income = income;
     this->filing = filing;
-    this->taxOwed = getTaxes();
-    this->taxRate = taxOwed / income;
+    this->tax_owed = get_taxes();
+    this->tax_rate = tax_owed / income;
 }
 
 // No-arg constructor sets income to $0.00 and filing status to single
 TaxVT::TaxVT() : TaxVT(0, single) {}
 
 // Filing singly
-double TaxVT::scheduleX(double income)
+double TaxVT::schedule_X(double income)
 {
     if (income > 200200)
     {
@@ -38,7 +38,7 @@ double TaxVT::scheduleX(double income)
 }
 
 // Filing jointly, married
-double TaxVT::scheduleY1(double income)
+double TaxVT::schedule_Y1(double income)
 {
     if (income > 243750)
     {
@@ -63,7 +63,7 @@ double TaxVT::scheduleY1(double income)
 }
 
 // Filing separate, married
-double TaxVT::scheduleY2(double income)
+double TaxVT::schedule_Y2(double income)
 {
     if (income > 121875)
     {
@@ -88,7 +88,7 @@ double TaxVT::scheduleY2(double income)
 }
 
 // Filing as head of household
-double TaxVT::scheduleZ(double income)
+double TaxVT::schedule_Z(double income)
 {
     if (income > 221950)
     {
@@ -112,25 +112,25 @@ double TaxVT::scheduleZ(double income)
 }
 
 // Get Taxes
-double TaxVT::getTaxes() const
+double TaxVT::get_taxes() const
 {
    switch (filing)
    {
        case single:
-           return scheduleX(income);
-       case marriedJoint:
-           return scheduleY1(income);
-       case marriedSeparate:
-           return scheduleY2(income);
-       case headOfHouse:
-           return scheduleZ(income);
+           return schedule_X(income);
+       case married_joint:
+           return schedule_Y1(income);
+       case married_separate:
+           return schedule_Y2(income);
+       case head_of_house:
+           return schedule_Z(income);
        default:
            return 0;
    }
 }
 
 // Get effective tax rate
-double TaxVT::getTaxRate() const
+double TaxVT::get_tax_rate() const
 {
-    return taxRate;
+    return tax_rate;
 }
