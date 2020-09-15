@@ -22,7 +22,7 @@ public:
     static double scheduleY2(double income); // Married filing separate
     static double scheduleZ(double income); // Head of household filing
 
-    double getTaxes();
+    double getTaxes() const;
 
 };
 
