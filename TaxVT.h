@@ -1,29 +1,45 @@
 // Idea from : https://www.reddit.com/r/dailyprogrammer/comments/cdieag/20190715_challenge_379_easy_progressive_taxation/
-// 2019 Vermont State Income Tax Rates: https://tax.vermont.gov/sites/tax/files/documents/RateSched.pdf
 
 #ifndef M1OEP_STYLE_ERRORS_GSAGAR_TAXVT_H
 #define M1OEP_STYLE_ERRORS_GSAGAR_TAXVT_H
 
+// Enum to keep track of the tax filing status
 enum filingStatus {single, marriedJoint, marriedSeparate, headOfHouse};
 
+/* TaxVT Class
+ * This class calculates the personal income tax using VT Tax tables.
+ * (https://tax.vermont.gov/sites/tax/files/documents/RateSched.pdf) */
 class TaxVT {
 private:
+    // Taxable income for fiscal year
     double income;
+    // Calculated taxes owed for the fiscal year
     double taxOwed;
+    // Calculated effective tax rate
     double taxRate;
+    // Taxpayer filing status
     filingStatus filing;
 public:
+    // Default constructor - NOTE: income cannot be changed, new instance is required
     TaxVT(double income, filingStatus filing);
 
+    // No-arg constructor
     TaxVT();
 
-    static double scheduleX(double income); // Filing singly
-    static double scheduleY1(double income); // Married filing together
-    static double scheduleY2(double income); // Married filing separate
-    static double scheduleZ(double income); // Head of household filing
+    /* TAX TABLES for 2019 */
+    // Filing as single
+    static double scheduleX(double income);
+    // Filing as married, jointly
+    static double scheduleY1(double income);
+    // Filing as married, separate
+    static double scheduleY2(double income);
+    // Filing as head of household
+    static double scheduleZ(double income);
 
+    // Get taxes owed for fiscal year
     double getTaxes() const;
-
+    // Get effective tax rate calculated for fiscal year
+    double getTaxRate() const;
 };
 
 
