@@ -6,31 +6,36 @@ using namespace std;
 
 // Function to validate user input
 template<class T>
-bool getUserInput(T& variable) {
-   if (!(cin >> variable)) {
+bool getUserInput(T& variable)
+{
+   if (!(cin >> variable))
+   {
         cout << "Invalid input." << endl;
         cin.clear();
         string junk;
         getline(cin, junk);
         return false;
-    }
+   }
    cout << endl;
    return true;
 }
 
-int main() {
+int main()
+{
     bool running = true;
     TaxVT user;
 
     cout << "----------Vermont Personal Income Tax Calculator----------" << endl;
 
-    while (running) {
+    while (running)
+    {
         double usrIncome;
         int usrStatus = 0;
 
         cout << "Please enter your 2019 income: $ ";
 
-        while(!getUserInput(usrIncome)) {
+        while(!getUserInput(usrIncome))
+        {
             cout << "Please enter a floating point number: ";
         }
 
@@ -42,11 +47,13 @@ int main() {
              << "Please enter your filing status: ";
 
         // Restrict user input to integers between 1 and 4
-        while (!getUserInput(usrStatus) || (usrStatus < 1 || usrStatus > 4)) {
+        while (!getUserInput(usrStatus) || (usrStatus < 1 || usrStatus > 4))
+        {
             cout << "Please enter an integer shown above: ";
         }
 
-        switch (usrStatus) {
+        switch (usrStatus)
+        {
             case 1:
                 user = TaxVT(usrIncome, single);
                 break;
@@ -70,7 +77,8 @@ int main() {
         // Ask if user wants to continue (default) or end (must enter N)
         char c;
         getUserInput(c);
-        if (c == 'N' || c == 'n') {
+        if (c == 'N' || c == 'n')
+        {
             running = false;
         }
     }

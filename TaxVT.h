@@ -9,7 +9,8 @@ enum filingStatus {single, marriedJoint, marriedSeparate, headOfHouse};
 /* TaxVT Class
  * This class calculates the personal income tax using VT Tax tables.
  * (https://tax.vermont.gov/sites/tax/files/documents/RateSched.pdf) */
-class TaxVT {
+class TaxVT
+{
 private:
     // Taxable income for fiscal year
     double income;
