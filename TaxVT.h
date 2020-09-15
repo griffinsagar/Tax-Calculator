@@ -3,6 +3,11 @@
 #ifndef M1OEP_STYLE_ERRORS_GSAGAR_TAXVT_H
 #define M1OEP_STYLE_ERRORS_GSAGAR_TAXVT_H
 
+// TODO: Change to hanging case
+// TODO: Change to snake case
+// TODO: Top-of-file comments
+// TODO: Variables with prefix
+
 // Enum to keep track of the tax filing status
 enum filingStatus {single, marriedJoint, marriedSeparate, headOfHouse};
 
