@@ -24,7 +24,7 @@ I prefer to comment before each variable and method. This makes it easier to fin
 While variable prefixes are extremely useful for quickly finding a variable's scope, they make the variable names harder to read. Context is key for variable names, and the scope can be easily deduced by searching for places where the variable will be used. 
 
 ## Errors
-####1. No match for operator \">>\" (Compiler)
+#### 1. No match for operator \">>\" (Compiler)
 This error came up when coding the `getUserInput` function. This error was caused by a lack of parentheses around the `if` clause:
 
     if (!cin >> variable) {
@@ -33,7 +33,7 @@ This error came up when coding the `getUserInput` function. This error was cause
 
 By putting the `!` in front of the `cin` without parentheses, the input stream was turned into a boolean. There is no overloaded `>>` between a boolean and a string, so the program would not compile.
 
-####2. Endless loop (Runtime)
+#### 2. Endless loop (Runtime)
 While coding the user prompts for this program (main.cpp, Ln 46 in master branch), there was one point where the program would not accept any user input from the console. 
 
     getUserInput(usrStatus);
@@ -44,4 +44,5 @@ While coding the user prompts for this program (main.cpp, Ln 46 in master branch
     
 I used the debugger and found that the program was prompting for user input twice. Even though the function call would update the `usrStatus` variable, the `while` clause would call the function again. I fixed this by adding the function call into the `while` loop as a clause. 
 
-####3. 
+#### 3. Pushing to wrong repo (Git/CLion)
+One of the most frustrating parts of this project was having to fix issues with CLion and Git. In the middle of working on my project, I realized that two remote repos were added to my CLion project. This was causing me to push my commits to the Mulitple-Classes repo instead of the Style-Errors one. I did not want to lose my commit history, so I had to manually rebase the project and remove the commits connected to my other project. This took a lot of time and effort, but I was able to fix it and have the changes reflected in my GitHub repo. I have learned to always triple-check the version control settings before commiting or pushing!
