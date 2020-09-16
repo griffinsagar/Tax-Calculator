@@ -4,7 +4,18 @@
 
 using namespace std;
 
-// Function to validate user input
+/* ******************** MAIN FUNCTION ********************
+ * The main function implements the TaxVT class to calculate the user's personal income tax, based on
+ * their filing status and taxable income. The program automatically validates the user input and repeats
+ * until the user decides to quit. It makes use of a global helper function:
+ *    - get_user_input(variable)
+ *      > This template function takes in any type of variable to validate user input. It uses the built-in
+ *        '>>' operator to attempt to write to the variable. If failed, the function will return false and
+ *        print to the console. If it works, the function returns true and stores the value in the variable
+ *        passed to the function.
+ *
+ * */
+
 template<class T>
 bool get_user_input(T& variable)
 {

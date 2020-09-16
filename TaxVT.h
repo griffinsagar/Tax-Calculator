@@ -1,45 +1,57 @@
-// Idea from : https://www.reddit.com/r/dailyprogrammer/comments/cdieag/20190715_challenge_379_easy_progressive_taxation/
+/* ******************** TaxVT CLASS ********************
+ * TaxVT is a class that calculates a user's personal income tax using the VT
+ * state tax tables. This class has the following fields:
+ *    - income (double)
+ *    - tax_owed (double)
+ *    - tax_rate (double)
+ *    - filing (filing_status^)
+ * And the following methods:
+ *    - TaxVT(income, filing)
+ *       > This default constructor takes the income and filing fields, calculating the taxes owed
+ *         and the effective tax rate.
+ *    - TaxVT()
+ *       > This no-arg constructor sets the income to 0, filing_status to 'single', calculating
+ *         the taxes owed and effective tax rate.
+ *    - get_taxes()
+ *       > This function is used by the constructor to calculate tax using income and filing status.
+ *         It makes use of the static helper functions to perform the calculations. It returns a
+ *         double value.
+ *    - get_tax_rate()
+ *       > This function is used by the constructor to calculate the effective tax rate for the user. It
+ *         returns a percentage as a double (between 0 and 1).
+ *    - schedule_X(), schedule_Y1(), schedule_Y2(), schedule_Z()
+ *       > These helper functions correspond to the tax brackets, and are used to quickly calculate
+ *         tax and return the value as a double.
+ * There is also a helper enum used:
+ *    - filing_status
+ *      > This enum is used to restrict the filing status to one of the four options: single (Schedule X),
+ *        married_joint (Schedule Y1), married_separate (Schedule Y2), and head_of_house (Schedule Z).
+ *
+ * The idea for this class came from: https://www.reddit.com/r/dailyprogrammer/comments/cdieag/20190715_challenge_379_easy_progressive_taxation/
+ * */
 
 #ifndef M1OEP_STYLE_ERRORS_GSAGAR_TAXVT_H
 #define M1OEP_STYLE_ERRORS_GSAGAR_TAXVT_H
 
-// Enum to keep track of the tax filing status
 enum filing_status {single, married_joint, married_separate, head_of_house};
 
-/* TaxVT Class
- * This class calculates the personal income tax using VT Tax tables.
- * (https://tax.vermont.gov/sites/tax/files/documents/RateSched.pdf) */
 class TaxVT
 {
 private:
-    // Taxable income for fiscal year
     double income;
-    // Calculated taxes owed for the fiscal year
     double tax_owed;
-    // Calculated effective tax rate
     double tax_rate;
-    // Taxpayer filing status
     filing_status filing;
 public:
-    // Default constructor - NOTE: income cannot be changed, new instance is required
     TaxVT(double income, filing_status filing);
-
-    // No-arg constructor
     TaxVT();
 
-    /* TAX TABLES for 2019 */
-    // Filing as single
     static double schedule_X(double income);
-    // Filing as married, jointly
     static double schedule_Y1(double income);
-    // Filing as married, separate
     static double schedule_Y2(double income);
-    // Filing as head of household
     static double schedule_Z(double income);
 
-    // Get taxes owed for fiscal year
     double get_taxes() const;
-    // Get effective tax rate calculated for fiscal year
     double get_tax_rate() const;
 };
 

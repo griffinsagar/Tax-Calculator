@@ -1,6 +1,5 @@
 #include "TaxVT.h"
 
-// Default constructor - NOTE: filing status and income are immutable
 TaxVT::TaxVT(double income, filing_status filing)
 {
     this->income = income;
@@ -9,10 +8,8 @@ TaxVT::TaxVT(double income, filing_status filing)
     this->tax_rate = tax_owed / income;
 }
 
-// No-arg constructor sets income to $0.00 and filing status to single
 TaxVT::TaxVT() : TaxVT(0, single) {}
 
-// Filing singly
 double TaxVT::schedule_X(double income)
 {
     if (income > 200200)
@@ -37,7 +34,6 @@ double TaxVT::schedule_X(double income)
     }
 }
 
-// Filing jointly, married
 double TaxVT::schedule_Y1(double income)
 {
     if (income > 243750)
@@ -62,7 +58,6 @@ double TaxVT::schedule_Y1(double income)
     }
 }
 
-// Filing separate, married
 double TaxVT::schedule_Y2(double income)
 {
     if (income > 121875)
@@ -87,7 +82,6 @@ double TaxVT::schedule_Y2(double income)
     }
 }
 
-// Filing as head of household
 double TaxVT::schedule_Z(double income)
 {
     if (income > 221950)
@@ -111,7 +105,6 @@ double TaxVT::schedule_Z(double income)
     }
 }
 
-// Get Taxes
 double TaxVT::get_taxes() const
 {
    switch (filing)
@@ -129,7 +122,6 @@ double TaxVT::get_taxes() const
    }
 }
 
-// Get effective tax rate
 double TaxVT::get_tax_rate() const
 {
     return tax_rate;
