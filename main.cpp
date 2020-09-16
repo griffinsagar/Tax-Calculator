@@ -5,21 +5,20 @@
 using namespace std;
 
 /* ******************** MAIN FUNCTION ********************
- * The main function implements the TaxVT class to calculate the user's personal income tax, based on
- * their filing status and taxable income. The program automatically validates the user input and repeats
+ * The main function implements the TaxVT class to calculate the user's personal f_income tax, based on
+ * their f_filing status and taxable f_income. The program automatically validates the user input and repeats
  * until the user decides to quit. It makes use of a global helper function:
  *    - get_user_input(variable)
  *      > This template function takes in any type of variable to validate user input. It uses the built-in
  *        '>>' operator to attempt to write to the variable. If failed, the function will return false and
  *        print to the console. If it works, the function returns true and stores the value in the variable
  *        passed to the function.
- *
  * */
 
 template<class T>
-bool get_user_input(T& variable)
+bool get_user_input(T& p_variable)
 {
-   if (!(cin >> variable))
+   if (!(cin >> p_variable))
    {
         cout << "Invalid input." << endl;
         cin.clear();
@@ -43,7 +42,7 @@ int main()
         double usr_income;
         int usr_status = 0;
 
-        cout << "Please enter your 2019 income: $ ";
+        cout << "Please enter your 2019 f_income: $ ";
 
         while(!get_user_input(usr_income))
         {
@@ -55,7 +54,7 @@ int main()
              << "   2. Married, joint" << endl
              << "   3. Married, separate" << endl
              << "   4. Head of Household" << endl
-             << "Please enter your filing status: ";
+             << "Please enter your f_filing status: ";
 
         // Restrict user input to integers between 1 and 4
         while (!get_user_input(usr_status) || (usr_status < 1 || usr_status > 4))

@@ -1,19 +1,19 @@
 /* ******************** TaxVT CLASS ********************
- * TaxVT is a class that calculates a user's personal income tax using the VT
+ * TaxVT is a class that calculates a user's personal f_income tax using the VT
  * state tax tables. This class has the following fields:
- *    - income (double)
- *    - tax_owed (double)
- *    - tax_rate (double)
- *    - filing (filing_status^)
+ *    - f_income (double)
+ *    - f_tax_owed (double)
+ *    - f_tax_rate (double)
+ *    - f_filing (filing_status^)
  * And the following methods:
- *    - TaxVT(income, filing)
- *       > This default constructor takes the income and filing fields, calculating the taxes owed
+ *    - TaxVT(f_income, f_filing)
+ *       > This default constructor takes the f_income and f_filing fields, calculating the taxes owed
  *         and the effective tax rate.
  *    - TaxVT()
- *       > This no-arg constructor sets the income to 0, filing_status to 'single', calculating
+ *       > This no-arg constructor sets the f_income to 0, filing_status to 'single', calculating
  *         the taxes owed and effective tax rate.
  *    - get_taxes()
- *       > This function is used by the constructor to calculate tax using income and filing status.
+ *       > This function is used by the constructor to calculate tax using f_income and f_filing status.
  *         It makes use of the static helper functions to perform the calculations. It returns a
  *         double value.
  *    - get_tax_rate()
@@ -24,7 +24,7 @@
  *         tax and return the value as a double.
  * There is also a helper enum used:
  *    - filing_status
- *      > This enum is used to restrict the filing status to one of the four options: single (Schedule X),
+ *      > This enum is used to restrict the f_filing status to one of the four options: single (Schedule X),
  *        married_joint (Schedule Y1), married_separate (Schedule Y2), and head_of_house (Schedule Z).
  *
  * The idea for this class came from: https://www.reddit.com/r/dailyprogrammer/comments/cdieag/20190715_challenge_379_easy_progressive_taxation/
@@ -38,18 +38,18 @@ enum filing_status {single, married_joint, married_separate, head_of_house};
 class TaxVT
 {
 private:
-    double income;
-    double tax_owed;
-    double tax_rate;
-    filing_status filing;
+    double f_income;
+    double f_tax_owed;
+    double f_tax_rate;
+    filing_status f_filing;
 public:
-    TaxVT(double income, filing_status filing);
+    TaxVT(double p_income, filing_status p_filing);
     TaxVT();
 
-    static double schedule_X(double income);
-    static double schedule_Y1(double income);
-    static double schedule_Y2(double income);
-    static double schedule_Z(double income);
+    static double schedule_X(double p_income);
+    static double schedule_Y1(double p_income);
+    static double schedule_Y2(double p_income);
+    static double schedule_Z(double p_income);
 
     double get_taxes() const;
     double get_tax_rate() const;
