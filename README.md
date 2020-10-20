@@ -1,4 +1,4 @@
-# M1OEP-Style-Errors-gsagar
+# Tax Calculator
 
 ## Description
 This program is used to calculate personal income tax owed in the state of Vermont. The formulas used come from the [state tax tables from 2019](https://tax.vermont.gov/sites/tax/files/documents/RateSched.pdf). There are four different options for filing taxes.
@@ -9,6 +9,11 @@ This program is used to calculate personal income tax owed in the state of Vermo
 1. Head of Household *(Schedule Z)*
 
 Each of these four options have different base taxes, tax rates, and tax brackets. The *[main.cpp](main.cpp)* file contains a program that guides the user through entering their information. This program repeats until the user chooses to end it.
+
+## Context
+This was a one of the programs I created for my Advanced Programming in C++ course. This particular unit focused on style consistency and error handling. I chose to keep the `alt-style` branch and comments below from the assignment. I feel that it shows my understanding of different style choices and ability to stick to a consistent style. Below, you can see my arguments for the style choices I made and the ways I debugged errors I came across.
+
+
 
 ## Style choices
 #### Egyptian-style braces

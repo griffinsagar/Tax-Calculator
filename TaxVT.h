@@ -1,10 +1,5 @@
-// Idea from : https://www.reddit.com/r/dailyprogrammer/comments/cdieag/20190715_challenge_379_easy_progressive_taxation/
-
 #ifndef M1OEP_STYLE_ERRORS_GSAGAR_TAXVT_H
 #define M1OEP_STYLE_ERRORS_GSAGAR_TAXVT_H
-
-// TODO: Top-of-file comments
-// TODO: Variables with prefix
 
 // Enum to keep track of the tax filing status
 enum filingStatus {single, marriedJoint, marriedSeparate, headOfHouse};
